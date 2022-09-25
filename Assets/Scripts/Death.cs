@@ -8,7 +8,8 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out player))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
+            Destroy(player.gameObject);
         }
         else
         {
