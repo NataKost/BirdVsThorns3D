@@ -5,13 +5,23 @@ using UnityEngine;
 public class NewWalGen : MonoBehaviour
 {
     public GameObject[] WallsPref;
-    void Start()
+    public GameObject oldWall;
+    private GameObject newWall;
+    public Move player;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.TryGetComponent(out player))
+        {
+            Invoke("ChangeWalls", 0.2f);
+        }
     }
 
-    void Update()
+    public void ChangeWalls ()
     {
-        
+        int rnd = Random.Range(0, 6);
+        Destroy(oldWall);
+        newWall = Instantiate(WallsPref[rnd]);
+        oldWall = newWall;
     }
 }
