@@ -13,6 +13,9 @@ public class NewWalGen : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out player))
         {
+            int i = PlayerPrefs.GetInt("Score");
+            i++;
+            PlayerPrefs.SetInt("Score", i);
             Invoke("ChangeWalls", 0.2f);
         }
     }
