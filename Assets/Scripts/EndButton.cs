@@ -13,4 +13,14 @@ public class EndButton : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Store()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Dell()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
